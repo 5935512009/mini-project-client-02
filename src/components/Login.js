@@ -90,8 +90,8 @@ const Login =({ setSession })=>{
     <br>
     </br>   
         <div class="img">
-            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="200"></img>
-            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="200"></img>
+            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="190"></img>
+            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="190"></img>
             
         </div>
     </div>
