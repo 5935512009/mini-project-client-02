@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import auth from '../firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import firebase from 'firebase'
+import './appA.css';
+
 
 const Login =({ setSession })=>{
   const [username, setUsername] = useState('')
@@ -65,9 +67,10 @@ const Login =({ setSession })=>{
   }
   return (
     
-    <div class="wrapper">
-    <div class="form-signin">
-    <h2 class="form-signin-heading">Please login</h2>
+    <div class="wrapper" >
+    <div class="form-signin"id="ccc">
+    <h2 class="form-signin-heading" id="aaa" >Login TOP 10 food </h2>
+    
     {/* <p1>{username} {password}</p1> */}
     <input type="text" class="form-control" name="username" 
     placeholder="Email Address" 
@@ -77,13 +80,20 @@ const Login =({ setSession })=>{
     placeholder="Password" 
     onChange={(e)=>setPassword(e.target.value)}
     />
-
+    
     <button onClick={handleLogin}> Login</button>
     <button onClick={handleRegister}> Register</button>
     <StyledFirebaseAuth
       uiConfig={uiConfig}
       firebaseAuth={firebase.auth()}
     />
+    <br>
+    </br>   
+        <div class="img">
+            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="200"></img>
+            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="200"></img>
+            
+        </div>
     </div>
   </div>
   );
