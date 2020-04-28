@@ -3,6 +3,7 @@ import auth from '../firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import firebase from 'firebase'
 import './appA.css';
+import './log.css';
 
 
 const Login =({ setSession })=>{
@@ -67,9 +68,10 @@ const Login =({ setSession })=>{
   }
   return (
     
-    <div class="wrapper" >
-    <div class="form-signin"id="ccc">
-    <h2 class="form-signin-heading" id="aaa" >Login TOP 10 food </h2>
+    <div class="wrapper zzz"   >
+    <div class="form-signin" id="ccc">
+      <img src="https://i.pinimg.com/originals/1c/d7/b3/1cd7b38e7a147808595157315392eadb.jpg" height="100" wight="100" id="icon1"></img>
+    <h1 class="form-signin-heading" id="aaa" > TOP 10 FOOD </h1>
     
     {/* <p1>{username} {password}</p1> */}
     <input type="text" class="form-control" name="username" 
@@ -80,9 +82,9 @@ const Login =({ setSession })=>{
     placeholder="Password" 
     onChange={(e)=>setPassword(e.target.value)}
     />
-    
-    <button onClick={handleLogin}> Login</button>
-    <button onClick={handleRegister}> Register</button>
+    <br/>
+    <button class="btn btn-secondary" onClick={handleLogin}> Login</button>
+    <button class="btn btn-warning" onClick={handleRegister}> Register</button>
     <StyledFirebaseAuth
       uiConfig={uiConfig}
       firebaseAuth={firebase.auth()}
@@ -90,8 +92,8 @@ const Login =({ setSession })=>{
     <br>
     </br>   
         <div class="img">
-            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="190"></img>
-            <img src="https://readthecloud.co/wp-content/uploads/2019/04/living-eat-forest-food-7.jpg" alt="Error"height="500" wight="190"></img>
+            
+            
             
         </div>
     </div>

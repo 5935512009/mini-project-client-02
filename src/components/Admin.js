@@ -55,15 +55,7 @@ const Admin = () => {
                
                 onClick={handleLogout}>logout</button>
           <h1>schedule top 10 food</h1>
-        </div>
-
-      ) : (
-          <div>
-          <Login setSession={setSession} />
-          
-           </div>
-        )}
-        <div class="Ana">
+          <div class="Ana">
             <div class="tab tab-1" id="table">
             
             <table  border="3" id="fff" >
@@ -79,13 +71,22 @@ const Admin = () => {
         
                 Restaurant  Name : <input type="text" name="fname" id="fname"></input>
                 Menu Name        : <input type="text" name="lname" id="lname"></input>
-                Score Menu       : <input type="number" name="age" id="age"></input>
+                Score Menu       : <input type="number" name="score" id="score"></input>
 
                 <button onclick="addHtmlTableRow();">Add</button>
                 <button onclick="editHtmlTbleSelectedRow();">Edit</button>
                 <button onclick="removeSelectedRow();">Remove</button>
             </div>
         </div>
+        </div>
+
+      ) : (
+          <div>
+          <Login setSession={setSession} />
+          
+           </div>
+        )}
+        
         
     </div>
     

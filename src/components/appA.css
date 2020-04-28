@@ -2,11 +2,18 @@
     background-color: aqua;
   }
 #ccc{
-      color:red;
-      background-color: #99e6ff;
+      color:rgb(179, 53, 53);
+      border: 2px solid black;
+      padding: 25px;
+      background-color: rgb(241, 205, 42);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%; 
   }
 #aaa{
-      background-color: #66d9ff;
+      
+      height: 100%;
+      font-weight: 200;
 }
 #fff{
       border-color: brown;
@@ -25,3 +32,15 @@
 .tab{float: left;}
 .tab-2{margin-left: 50px}
 .tab-2 input{display: block;margin-bottom: 10px}
+
+.zzz{
+    height: 100%;
+
+
+}
+body{
+    height: 100%;
+}
+#icon1{
+  border-radius: 50%;
+}
