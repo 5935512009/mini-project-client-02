@@ -55,10 +55,10 @@ const Admin = () => {
                
                 onClick={handleLogout}>logout</button>
           <h1>schedule top 10 food</h1>
-          <div class="Ana">
+          
             <div class="tab tab-1" id="table">
             
-            <table  border="3" id="fff" >
+            <table  border="3" id="fff" className="white" >
                     <tr>
                         <th id="venchon">restaurant</th>
                         <th id="venchon">memu</th>
@@ -67,17 +67,21 @@ const Admin = () => {
             </table>
               
             </div>
-            <div class="tab tab-2">
+            <div class="tab tab-2"  >
         
-                Restaurant  Name : <input type="text" name="fname" id="fname"></input>
-                Menu Name        : <input type="text" name="lname" id="lname"></input>
-                Score Menu       : <input type="number" name="score" id="score"></input>
+                <h1>Restaurant  Name : <input type="text" name="fname" id="fname"></input></h1>
+                <h1>Menu Name        : <input type="text" name="lname" id="lname"></input></h1>
+                <h1>Score Menu       : <input type="number" name="age" id="age"></input></h1>
 
                 <button onclick="addHtmlTableRow();">Add</button>
                 <button onclick="editHtmlTbleSelectedRow();">Edit</button>
                 <button onclick="removeSelectedRow();">Remove</button>
             </div>
-        </div>
+             
+          <script>
+            
+          </script>
+
         </div>
 
       ) : (
@@ -89,8 +93,9 @@ const Admin = () => {
         
         
     </div>
-    
-    
+     
   )
+  
+    
 }
 export default Admin
