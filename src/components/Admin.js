@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import Login from './Login'
-import auth from '../firebase';
-import './appA.css';
+import React, { useState, useEffect } from "react";
+import Login from "./Login";
+import auth from "../firebase";
+import "./appA.css";
+import MaterialTable from "material-table";
 
 const Admin = () => {
   const [session, setSession] = useState({
     isLoggedIn: false,
     currentUser: null,
-    errorMessage: null
+    errorMessage: null,
   });
 
   useEffect(() => {
-    const handleAuth = auth.onAuthStateChanged(user => {
+    const handleAuth = auth.onAuthStateChanged((user) => {
       if (user) {
         setSession({
           isLoggedIn: true,
           currentUser: user,
-          errorMessage: null
+          errorMessage: null,
         });
       }
     });
@@ -25,77 +26,111 @@ const Admin = () => {
       handleAuth();
     };
   }, []);
- 
 
   const handleLogout = () => {
-    auth.signOut().then(response => {
+    auth.signOut().then((response) => {
       setSession({
         isLoggedIn: false,
-        currentUser: null
+        currentUser: null,
       });
     });
   };
+  const [state, setState] = React.useState({
+    columns: [
+      { title: "Restaurant", field: "name" },
+      { title: "Menu", field: "surname" },
+      { title: "Score", field: "birthYear", type: "numeric" },
+      {
+        title: "News",
+        field: "birthCity",
+        lookup: { 34: "New", 63: "Old" },
+      },
+      
+    ],
+    data: [
+      {
+        name: "ร้านเหลือง",
+        surname: "ผัดกระเพรา+ใข่ดาว",
+        birthYear: 9,
+        birthCity: 63,
+      },
+      {
+        name: "ร้านเหลือง",
+        surname: "หมูผัดนํ้ามันหอย",
+        birthYear: 7,
+        birthCity: 34,
+      },
+    ],
+  });
   return (
     <div id="aaa">
       {session.isLoggedIn ? (
         <div>
           <span>
-            <h1 id="ccc">Welcome  {session.currentUser && session.currentUser.displayName}</h1>
+            <h1 id="ccc">
+              Welcome {session.currentUser && session.currentUser.displayName}
+            </h1>
             {session.currentUser && session.currentUser.email}
-            <br/>
+            <br />
             <img
-               width="180px" height="150px"
+              width="180px"
+              height="150px"
               src={session.currentUser && session.currentUser.photoURL}
             />
           </span>
-          
-            <br/>
-           
-            <button  
-               
-                onClick={handleLogout}>logout</button>
+          <br />
+          <button onClick={handleLogout}>logout</button>
           <h1>schedule top 10 food</h1>
-          
-            <div class="tab tab-1" id="table">
-            
-            <table  border="3" id="fff" className="white" >
-                    <tr>
-                        <th id="venchon">restaurant</th>
-                        <th id="venchon">memu</th>
-                        <th id="venchon">score</th>
-                    </tr>
-            </table>
-              
-            </div>
-            <div class="tab tab-2"  >
-        
-                <h1>Restaurant  Name : <input type="text" name="fname" id="fname"></input></h1>
-                <h1>Menu Name        : <input type="text" name="lname" id="lname"></input></h1>
-                <h1>Score Menu       : <input type="number" name="age" id="age"></input></h1>
-
-                <button onclick="addHtmlTableRow();">Add</button>
-                <button onclick="editHtmlTbleSelectedRow();">Edit</button>
-                <button onclick="removeSelectedRow();">Remove</button>
-            </div>
-             
-          <script>
-            
-          </script>
-
+          <MaterialTable
+            title="TOP 10 FOOD IN THE WEEK"
+            columns={state.columns}
+            data={state.data}
+            editable={{
+              onRowAdd: (newData) =>
+                new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve();
+                    setState((prevState) => {
+                      const data = [...prevState.data];
+                      data.push(newData);
+                      return { ...prevState, data };
+                    });
+                  }, 600);
+                }),
+              onRowUpdate: (newData, oldData) =>
+                new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve();
+                    if (oldData) {
+                      setState((prevState) => {
+                        const data = [...prevState.data];
+                        data[data.indexOf(oldData)] = newData;
+                        return { ...prevState, data };
+                      });
+                    }
+                  }, 600);
+                }),
+              onRowDelete: (oldData) =>
+                new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve();
+                    setState((prevState) => {
+                      const data = [...prevState.data];
+                      data.splice(data.indexOf(oldData), 1);
+                      return { ...prevState, data };
+                    });
+                  }, 600);
+                }),
+            }}
+          />
+          ); }
         </div>
-
       ) : (
-          <div>
+        <div>
           <Login setSession={setSession} />
-          
-           </div>
-        )}
-        
-        
+        </div>
+      )}
     </div>
-     
-  )
-  
-    
-}
-export default Admin
+  );
+};
+export default Admin;
