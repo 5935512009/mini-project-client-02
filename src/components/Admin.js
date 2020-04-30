@@ -3,6 +3,9 @@ import Login from './Login'
 import auth from '../firebase';
 import './appA.css';
 import MaterialTable from 'material-table';
+import { Table, NavLink, Collapse, Button, CardBody, Card } from 'reactstrap';
+
+
 const Admin = () => {
   const [session, setSession] = useState({
     isLoggedIn: false,
@@ -60,6 +63,7 @@ const Admin = () => {
         birthYear: 7,
         birthCity: 34,
         name01: 'เมนูยอดนิยมของร้านเหลือง' ,
+        
 
       },
       {
@@ -136,9 +140,8 @@ const Admin = () => {
           }),
       }}
     />
-  );
-}
-           
+           <br/>
+           <button ><NavLink href="https://travel.trueid.net/detail/2G8mrpAr38b" >top 10 food phuket</NavLink></button>
              
           
 
